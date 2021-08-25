@@ -11,6 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TesteMongoDB.Repository;
+using TesteMongoDB.Repository.Interface;
+using TesteMongoDB.Service;
+using TesteMongoDB.Service.Interface;
 
 namespace TesteMongoDB
 {
@@ -32,6 +36,12 @@ namespace TesteMongoDB
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TesteMongoDB", Version = "v1" });
             });
+
+            //Services
+            services.AddScoped<IUsersService, UsersService>();
+
+            //Repositorys
+            services.AddScoped<IUsersRepository, UsersRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

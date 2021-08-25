@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using TesteMongoDB.Domain.Entities;
 
-namespace TesteMongoDB.Service.Interface
+namespace TesteMongoDB.Repository.Interface
 {
-    public interface IUsersService
+    public interface IUsersRepository
     {
-        Task<IEnumerable<Users>> GetUsersAsync();
+        Task<IEnumerable<Users>> GetAll();
     }
 }
