@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TesteMongoDB.Middleware;
 using TesteMongoDB.Repository;
 using TesteMongoDB.Repository.Interface;
 using TesteMongoDB.Service;
@@ -60,10 +62,13 @@ namespace TesteMongoDB
 
             app.UseAuthorization();
 
+            app.UseMiddleware<TesteMiddleware>();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
